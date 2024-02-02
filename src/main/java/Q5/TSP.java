@@ -1,9 +1,43 @@
 package Q5;
 
-public class TSPAlgorithm {
+public class TSP {
     static String stateWhite = "white";
     static String stateGrey = "grey";
     static String stateBlack = "black";
+
+    public static int[] dijkstra(int[][] graph, int source) {
+        int[] distance = new int[graph.length];
+        for (int i = 0; i < graph.length; i++) {
+            distance[i] = Integer.MAX_VALUE;
+        }
+
+        String[] state = new String[graph.length];
+        for (int i = 0; i < graph.length; i++) {
+            state[i] = stateWhite;
+        }
+
+        distance[source] = 0;
+
+        PriorityQueue pq = new PriorityQueue();
+        pq.enqueue(source, 0);
+
+        while (!pq.isEmpty()) {
+            int[] current = pq.dequeue();
+            state[current[0]] = stateGrey;
+
+            for (int i = 0; i < graph.length; i++) {
+                if (graph[current[0]][i] != 0 && graph[current[0]][i] != Integer.MAX_VALUE && state[i].equals("white")) {
+                    int newDistance = distance[current[0]] + graph[current[0]][i];
+                    if (newDistance < distance[i]) {
+                        distance[i] = newDistance;
+                        pq.enqueue(i, newDistance);
+                    }
+                }
+            }
+            state[current[0]] = stateBlack;
+        }
+        return distance;
+    }
     public static int[][] dijkstraTSP(int[][] graph, int source) {
         int[][] path = new int[graph.length + 1][2];
         String[] state = new String[graph.length];
@@ -49,6 +83,15 @@ public class TSPAlgorithm {
                 {30, 40, 50, 70, 0}
         };
 
+//        // Run the dijkstra's Algorithm
+//        int source = 0;
+//        int [] distance = dijkstra(graph, source);
+//        System.out.println("Shortest Distance from: ");
+//        for (int i = 0; i < distance.length; i++) {
+//            System.out.println( source + " to " + i + " = " + distance[i]);
+//        }
+
+//      // Run the dijkstraTSP Algorithm
         int [][] minPath = new int[graph.length + 1][2];
         int minTotDistance = Integer.MAX_VALUE;
         for (int i = 0; i < graph.length; i++) {
@@ -74,5 +117,6 @@ public class TSPAlgorithm {
         }
         System.out.println();
         System.out.println("Total distance: " + minTotDistance + " units");
+
     }
 }
