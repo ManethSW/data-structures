@@ -1,4 +1,4 @@
-package DijkstraAndTSP;
+package Q5;
 
 public class PriorityQueue {
     private Node head;

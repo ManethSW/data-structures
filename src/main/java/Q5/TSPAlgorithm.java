@@ -1,6 +1,6 @@
-package DijkstraAndTSP;
+package Q5;
 
-public class TSP {
+public class TSPAlgorithm {
     static String stateWhite = "white";
     static String stateGrey = "grey";
     static String stateBlack = "black";

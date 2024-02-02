@@ -1,4 +1,4 @@
-package DijkstraAndTSP;
+package Q5;
 
 class DijsktrasAlgorithm {
     static String stateWhite = "white";
