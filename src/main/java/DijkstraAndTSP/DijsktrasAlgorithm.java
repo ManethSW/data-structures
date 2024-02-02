@@ -41,11 +41,11 @@ class DijsktrasAlgorithm {
 
     public static void main(String[] args) {
         int[][] graph = {
-                {0, Integer.MAX_VALUE, 15, 20, Integer.MAX_VALUE},
-                {Integer.MAX_VALUE, 0, 35, 25, 40},
+                {0, 10, 15, 20, 30},
+                {10, 0, 35, 25, 40},
                 {15, 35, 0, 30, 50},
                 {20, 25, 30, 0, 70},
-                {Integer.MAX_VALUE, 40, 50, 70, 0}
+                {30, 40, 50, 70, 0}
         };
         int source = 0;
         int [] distance = dijkstra(graph, source);

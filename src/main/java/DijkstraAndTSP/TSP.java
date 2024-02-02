@@ -59,9 +59,9 @@ public class TSP {
             }
             if (totalDistance < minTotDistance) {
                 minTotDistance = totalDistance;
-                for (int j = 0; j < path.length; j++) {
-                    minPath[j][0] = path[j][0];
-                    minPath[j][1] = path[j][1];
+                for (int k = 0; k < path.length; k++) {
+                    minPath[k][0] = path[k][0];
+                    minPath[k][1] = path[k][1];
                 }
             }
         }
